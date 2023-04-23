@@ -1,10 +1,13 @@
-name: Build and Test
+name: Build
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'main'
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: poetry-python
+  IMAGE_NAME: ${{ github.repository_owner }}/poetry-python
 jobs:
   build:
     name: build ${{ matrix.python-version }}
